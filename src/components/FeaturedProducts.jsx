@@ -1,6 +1,6 @@
 import React from "react";
 import Product from "./common/Product";
-import ProductImage from "../assets/images/Mens/two.jpg"
+import ProductImage from "../assets/images/Mens/two.jpg";
 
 const FeaturedProducts = () => {
   const products = [
@@ -36,13 +36,16 @@ const FeaturedProducts = () => {
 
   return (
     <>
-      <div className="">
-        <div className="row mt-4">
-          {products.map((product) => (
-            <div className="col-md-3" key={product.id}>
-              <Product product={product} />
-            </div>
-          ))}
+      <div className="featuredProducts py-5">
+        <div className="container">
+          <h2>Featured Products</h2>
+          <div className="row mt-4">
+            {products.map((product) => (
+              <div className="col-md-3" key={product.id}>
+                <Product product={product} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>

@@ -1,16 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   return (
     <>
       <div className="product card border-0">
         <div className="card-img">
-          <a href="">
+          <Link to={`/product/${product.id}`} style={{cursor: 'pointer'}}>
             <img src={product.thumbnail} alt="" className="img-fluid w-100" />
-          </a>
+          </Link>
         </div>
         <div className="card-body mt-3">
-          <a href="">{product.name}</a>
+          <Link to={`/product/${product.id}`} style={{cursor: 'pointer'}}>{product.name}</Link>
           <div className="price d-flex align-items-center gap-2">
             {product.discountPrice && product.discountPrice > 0 ? (
               <>

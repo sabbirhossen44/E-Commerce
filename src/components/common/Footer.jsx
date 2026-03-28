@@ -4,7 +4,7 @@ import Logo from "../../assets/images/logo-white.png";
 const Footer = () => {
   return (
     <>
-      <div className="py-5 footer">
+      <div className="pt-5 footer">
         <div className="container text-white">
           <div className="row">
             <div className="col-md-3">
@@ -48,6 +48,11 @@ const Footer = () => {
                 </ul>
             </div>
           </div>
+
+          <div className="text-center border-top mt-3 py-3">
+            <p className="mb-0"> &copy; {new Date().getFullYear()} All rights reserved</p>
+          </div>
+
         </div>
       </div>
     </>
