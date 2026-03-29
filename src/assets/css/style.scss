@@ -163,3 +163,14 @@ header {
         }
     }
 }
+
+.product-detail{
+  .mySwiper{
+      .swiper-slide{
+        height: auto ! important;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+  }
+}

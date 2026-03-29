@@ -2,42 +2,136 @@ import React from "react";
 import Layout from "../components/common/Layout";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { useNavigate } from "react-router-dom";
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Thumbs, FreeMode, Navigation  } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Thumbs, FreeMode, Navigation } from "swiper/modules";
+import { Rating } from "react-simple-star-rating";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import { useState } from "react";
+import ProductImg from "../assets/images/Mens/two.jpg";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  
+  const [rating, setRating] = useState(4);
+
   return (
     <>
       <Layout>
-        <div className="container">
+        <div className="container product-detail">
           <div className="py-4">
             <Breadcrumb>
-              <Breadcrumb.Item onClick={() => navigate("/")}>Home</Breadcrumb.Item>
-              <Breadcrumb.Item onClick={() => navigate("/shop")}>Shop</Breadcrumb.Item>
+              <Breadcrumb.Item onClick={() => navigate("/")}>
+                Home
+              </Breadcrumb.Item>
+              <Breadcrumb.Item onClick={() => navigate("/shop")}>
+                Shop
+              </Breadcrumb.Item>
               <Breadcrumb.Item active>Product 1</Breadcrumb.Item>
             </Breadcrumb>
           </div>
 
-          <div className="row">
+          <div className="row mb-5">
             <div className="col-md-5">
               <div className="row">
                 <div className="col-2">
-                  
+                  <Swiper
+                    style={{
+                      "--swiper-navigation-color": "#000",
+                      "--swiper-pagination-color": "#000",
+                    }}
+                    onSwiper={setThumbsSwiper}
+                    loop={true}
+                    direction={`vertical`}
+                    spaceBetween={10}
+                    slidesPerView={6}
+                    freeMode={true}
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper mt-2"
+                  >
+                    <SwiperSlide>
+                      <div className="content">
+                        <img
+                          src={ProductImg}
+                          alt=""
+                          height={100}
+                          className="w-100"
+                        />
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div className="content">
+                        <img
+                          src={ProductImg}
+                          alt=""
+                          height={100}
+                          className="w-100"
+                        />
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div className="content">
+                        <img
+                          src={ProductImg}
+                          alt=""
+                          height={100}
+                          className="w-100"
+                        />
+                      </div>
+                    </SwiperSlide>
+                  </Swiper>
                 </div>
                 <div className="col-10">
-
+                  <Swiper
+                    style={{
+                      "--swiper-navigation-color": "#000",
+                      "--swiper-pagination-color": "#000",
+                    }}
+                    loop={true}
+                    spaceBetween={0}
+                    navigation={true}
+                    thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper2"
+                  >
+                    <SwiperSlide>
+                      <div className="content">
+                        <img src={ProductImg} alt="" className="w-100" />
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div className="content">
+                        <img src={ProductImg} alt="" className="w-100" />
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div className="content">
+                        <img src={ProductImg} alt="" className="w-100" />
+                      </div>
+                    </SwiperSlide>
+                  </Swiper>
                 </div>
               </div>
             </div>
 
             <div className="col-md-7">
+              <h2>Dummy Product Title</h2>
+              <div className="d-flex align-items-center">
+                <Rating
+                  size={20}
+                  readonly={true}
+                  initialValue={rating}
+                />
+                <span className="ms-2">10 Reviews</span>
+              </div>
+              
+              <div className="price d-flex align-items-center gap-2 fs-3 mt-3">
+                <span>$100</span>
+                <del style={{ color: "#06112380" }}>$200</del>
+              </div>
 
             </div>
           </div>
