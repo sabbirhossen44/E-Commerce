@@ -10,6 +10,8 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { useState } from "react";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 import ProductImg from "../assets/images/Mens/two.jpg";
 
 const ProductDetails = () => {
@@ -120,20 +122,60 @@ const ProductDetails = () => {
             <div className="col-md-7">
               <h2>Dummy Product Title</h2>
               <div className="d-flex align-items-center">
-                <Rating
-                  size={20}
-                  readonly={true}
-                  initialValue={rating}
-                />
+                <Rating size={20} readonly={true} initialValue={rating} />
                 <span className="ms-2">10 Reviews</span>
               </div>
-              
-              <div className="price d-flex align-items-center gap-2 fs-3 mt-3">
+
+              <div className="price d-flex align-items-center gap-2 fs-3 mt-3 fw-bold">
                 <span>$100</span>
                 <del style={{ color: "#06112380" }}>$200</del>
               </div>
 
+              <p className="mt-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam <br />
+                quae quidem, quod quia quisquam quos quas quibusdam quidem quia{" "}
+                <br />
+                quod quae quia quisquam quos quas quibusdam quidem quia quod
+              </p>
+
+              <div className="mt-3">
+                <strong>Select Size</strong>
+                <div className="size mt-2">
+                  <button className="btn btn-size">S</button>
+                  <button className="btn btn-size ms-1">M</button>
+                  <button className="btn btn-size ms-1">L</button>
+                  <button className="btn btn-size ms-1">XL</button>
+                </div>
+              </div>
+
+              <div className="add-to-cart my-4">
+                <button className="btn btn-primary text-uppercase">
+                  Add to Cart
+                </button>
+              </div>
+
+              <hr />
+
+              <div className="">
+                <strong>SKU: </strong>
+                DDXX2234
+              </div>
             </div>
+          </div>
+
+          <div className="mb-5">
+            <Tabs defaultActiveKey="description"
+              id="uncontrolled-tab-example"
+              className="mb-3"
+            >
+              <Tab eventKey="description" title="Description">
+                Tab content for Description
+              </Tab>
+              <Tab eventKey="reviews" title="Reviews (10)">
+                Tab content for Reviews
+              </Tab>
+            </Tabs>
           </div>
         </div>
       </Layout>
